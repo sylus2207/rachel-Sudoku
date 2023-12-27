@@ -22,7 +22,7 @@ if (keystorePropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = versionProperties.getProperty('flutter.versionCode')
@@ -70,8 +70,8 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 2045
+        versionName "3.0.1"
     }
 
     // Key Config
@@ -88,8 +88,8 @@ android {
         release {
             // Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-            // signingConfig signingConfigs.release   // Key Config
+            //signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release   // Key Config
         }
     }
 }
